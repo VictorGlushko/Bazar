@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Bazar.Domain.Entities;
 
 namespace Bazar.Data
 {
@@ -12,5 +13,7 @@ namespace Bazar.Data
             : base(options)
         {
         }
+
+        public DbSet<CarouselSlide> CarouselSlides { get; set; }
     }
 }
