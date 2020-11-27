@@ -1,0 +1,124 @@
+﻿.comment {
+    background: var(--hl-card-dark);
+    color: black;
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #708090;
+    color: var(--hl-font-color)
+}
+
+.date {
+    background: aqua;
+}
+
+.message {
+ 
+}
+.avatar {
+    width: 100px;
+  
+   
+}
+
+.comment-info {
+    display: flex;
+    width: 100%;
+    line-height: normal;
+   
+}
+
+.message-content {
+    width: 100%;
+    padding-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.coment-message {
+    margin: 8px 0;
+}
+
+.comment-date {
+    margin-left: 10px;
+    font-size: 10px;
+    color: #708090;
+}
+
+.user-link {
+    font-family: "PlayBold", sans-serif;
+    font-size: 18px;
+}
+
+.answer-link {
+    color: var(--hl-blue);
+    font-size: 14px;
+    font-family: "PlayBold", sans-serif;
+    display: inline-block;
+    transition: .2s;
+}
+
+    .answer-link:hover {
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--hl);
+    }
+
+
+.send-comment {
+    display: flex;
+    padding: 0;
+  
+}
+
+.message-in{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: white;
+    padding: 10px;
+    outline: none;
+    background: #708090;
+    border: none;
+}
+
+
+.sent-comment-button {
+    font-family: "PlayBold", sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    height: 48px;
+    background: #16BFFF;
+    border: none;
+    border-bottom: 5px solid #129ACD;
+    outline: none;
+}
+
+    .sent-comment-button:hover {
+        border-top: 2px solid #129ACD;
+        background: #129ACD;
+        cursor: pointer;
+        border-bottom: none;
+    }
+
+.answers-block {
+    background: var(--hl-card-dark);
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.answer {
+    padding: 15px;
+    background: var(--hl-card-dark);
+    color: black;
+    display: flex;
+    border-bottom: 1px solid #708090;
+    color: var(--hl-font-color);
+
+}
+.answer-form {
+
+}

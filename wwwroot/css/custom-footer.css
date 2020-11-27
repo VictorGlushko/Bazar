@@ -1,0 +1,59 @@
+﻿.main-footer {
+    background: #262626;
+    font-family: "Lato", sans-serif;
+    margin-top: 60px;
+    color: rgba(255,255,255,0.43);
+}
+
+.main-footer ul {
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.main-footer li {
+    padding: 15px 15px 15px 0px;
+}
+
+
+.footer-top a{
+    color: #ddd;
+    transition: .1s;
+}
+
+.footer-top a:hover {
+    color: var(--hl-2);
+}
+
+.footer-middle {
+    background: #2F2F2F;
+    display: flex;
+    font-size: 14px;
+}
+
+
+    .footer-middle a {
+        color: rgba(255,255,255,0.43);
+        transition: .1s;
+    }
+
+    .footer-middle a:hover {
+        color: #ddd;
+    }
+
+.footer-bottom {
+    padding: 20px 0px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+   
+
+}
+
+.pay-system {
+    height: 30px;
+}
+
+.pay-system img {
+    height: 100%;
+    
+}

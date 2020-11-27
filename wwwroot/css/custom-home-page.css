@@ -1,0 +1,258 @@
+﻿
+.left-arrow, .right-arrow {
+    padding-top: 100px; /*нужное значение */
+    
+}
+
+.catalog {
+    background: #F3F3F3;
+    display: block;
+    height: 100%;
+    padding: 0;
+}
+
+
+
+.main-slider {
+    position: relative;
+    background: #1d1f22;
+    margin-bottom: 23px;
+    padding-top: 30px;
+    width: 100%;
+    padding: 50px;
+}
+
+.container-slider {
+
+    max-width: 845px;
+    padding: 0 0px;
+    margin: 0 auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+.left-column{
+    background: #343A40;
+}
+
+
+.right-column {
+    background: #343A40;
+    height: 500px;
+}
+
+.container-fluid {
+    max-width: 1024px;
+}
+
+.product-card {
+    font-family: 'Goldman', cursive;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: var(--hl-dark);
+    height: 100px;
+    color: #f3f3f3;
+    margin: 15px 0px;
+    transition: 0.25s;
+    display: flex;
+}
+
+    .product-card:hover {
+        text-decoration: none;
+        background: rgba(255,255,255,0.1);
+    }
+
+.product-card-img{
+    height: 100%;
+}
+
+.product-card-img img {
+    height: 100%;
+}
+
+
+.product-card-content {
+   
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.product-card-ganre {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.product-card-prace {
+
+    align-items: flex-end;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right: 10px;
+}
+
+.product-card-discount {
+
+   
+    padding: 4px 4px;
+    font-size: 14px;
+    background: var(--hl);
+}
+
+.product-card-final-price {
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+
+del {
+    position: relative;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: normal;
+}
+
+    del:before {
+        content: "";
+        width: 100%;
+        height: 0.1em;
+        background: #F6325C;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        
+    }
+
+
+.f-price {
+    font-size: 19px;
+}
+.tabs-area {
+    width: 100%;
+    display: flex;
+}
+
+.nav-link{
+    color: #f3f3f3;
+}
+
+    .nav-link:hover {
+        color: #f3f3f3;
+        color: #F6325C;
+    }
+
+.tabs-area a {
+    font-family: 'Montserrat', sans-serif;
+  
+    font-size: 15px;
+    color: #f3f3f3;
+    margin-left: 10px;
+    padding: 5px 10px;
+    transition: .2s linear;
+    text-decoration: none;
+}
+
+
+.tabs-area a:hover {
+    text-decoration: none;
+    color: var(--hl);
+}
+
+.line{
+    width: 100%;
+    height: 1px;
+    background: var(--hl);
+}
+
+.current{
+    color: var(--hl) !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.ganres {
+    color: var(--hl);
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.ganre-item {
+    width: 100%;
+    height: 40px;
+    margin-left: 15px;
+    color: #f3f3f3;
+}
+
+.discount-item {
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.discount-item-img {
+    width: 100%;
+    height: 100%;
+}
+
+.discount-item-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.game-discount {
+    padding: 1px 5px;
+    background: var(--hl)
+}
+
+.game-price {
+    padding: 2px;
+    margin-right: 7px;
+}
+
+.discount-header {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    color: #f3f3f3;
+    padding-top: 10px;
+}
+
+.description-item {
+
+    font-family: 'Goldman', cursive;
+    font-size: 15px;
+    color: var(--hl-font-color);
+    background: var(--hl-dark);
+    width: 100%;
+    padding: 5px;
+}
+
+
+.fin-price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 720px) {
+    .product-card {
+        height: 80px;
+        font-size: 14px;
+    }
+
+    del {
+        display: none;
+    }
+
+    .product-card-ganre {
+        display: none;
+    }
+    }
