@@ -6,7 +6,7 @@
 
         @foreach (var item in Model)
         {
-            var active = item.Order == 1 ? "active" : "";
+            var active = item.Order == 2 ? "active" : "";
 
 
 
@@ -14,7 +14,7 @@
                 <div class="row m-0">
                     <div class="col-md-8 m-0 p-0">
                         <a href="@item.Link">
-                            <img class="d-block w-100" src="@item.ImgPath" alt="Second slide">
+                            <img class="d-block w-100 h-100" src="@item.ImgPath" alt="Second slide">
                         </a>
                         <div class="description-block">
 

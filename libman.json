@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@5.15.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "datatable@2.0.1",
+      "destination": "wwwroot/lib/datatable/"
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.5.2",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "materialize@1.0.0",
+      "destination": "wwwroot/lib/materialize/"
+    },
+    {
+      "library": "bootbox.js@5.5.2",
+      "destination": "wwwroot/lib/bootbox.js/"
+    },
+    {
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/lib/jquery-ajax-unobtrusive/"
+    }
+  ]
+}

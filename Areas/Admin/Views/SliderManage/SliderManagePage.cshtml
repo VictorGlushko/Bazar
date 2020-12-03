@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Bazar.Domain.ViewModel.CarouselSlideViewModel>
+
+
+@{
+    ViewData["Title"] = "SliderManagePage";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <partial name="_Carousel" model="@Model" />
+    <a href=""></a>
+</div>
+
+
+
+<div class="row mt-4">
+    <div class="col">
+        <table id="tblCarousel" class="table table-bordered table-hover w-100">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Порядок</th>
+                <th>Заголовок</th>
+                <th>Описание</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+  
+</div>
+<div class="row mb-3 mt-3">
+    <div class="col w-100"><a class="btn btn-success w-100" asp-controller="SliderManage" asp-action="SlideForm">Добавить слайд </a></div>
+</div>
+
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            var t = $('#tblCarousel').DataTable({
+
+                ajax: {
+                    url: "/api/Slides",
+                    dataSrc: ""
+                },
+                columnDefs: [
+                    {
+                        targets: 0
+                    }
+                ],
+                order: [[1, 'asc']],
+                columns: [
+                    {
+                        width: "5%",
+                        data: "order"
+                    },
+                    {
+                        width: "10%",
+                        data: "order"
+                    },
+                    {
+                        data: "title",
+                        render: function (data,type,slide) {
+                            return "<a href='/admin/SliderManage/SlideForm/" + slide.id + "' class=''>"  + data + "</a>";
+                        }
+                    },
+                    {
+                        data: "description"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-danger w-100 js-delete' data-data-id=" +
+                                data +
+                                "><i class='fa fa-trash' aria-hidden='true'></i></button>";
+                        }
+                    }
+                ]
+            });
+
+            t.on('order.dt search.dt',
+                function () {
+                    t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
+
+
+            $('#tblCarousel').on('click',
+                '.js-delete',
+                function () {
+                    var button = $(this);
+
+                    bootbox.confirm("Вы уверены?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/Slides/" + button.attr("data-data-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+
+                        });
+
+
+                });
+
+        });
+
+
+    </script>
+
+
+}

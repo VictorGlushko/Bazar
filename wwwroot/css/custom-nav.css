@@ -2,11 +2,13 @@
 .navbar {
     font-family: "Micra", sans-serif;
     text-transform: uppercase;
-    font-size: .85rem;
+    font-size: .75rem;
     background: var(--hl-dark-2);
-    padding: 0.9em;
+    padding: 0.3em;
 }
-
+.navbar img {
+    height: 20px;
+}
     .navbar ul {
         margin: 0;
         padding: 0;
@@ -25,7 +27,7 @@
             position: relative;
             text-decoration: none;
             padding: 6px;
-            transition: 0.5s;
+            transition: 0.3s;
         }
 
     .navbar ul:hover li a {
@@ -47,7 +49,7 @@
         width: 100%;
         height: 2px;
         background: var(--hl-2);
-        transition: transform 0.5s;
+        transition: transform 0.3s;
         transform-origin: right;
         transform: scaleX(0);
         z-index: -1;

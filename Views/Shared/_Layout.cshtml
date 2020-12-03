@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/custom-nav.css" rel="stylesheet" />
     <link href="~/css/custom-home-page.css" rel="stylesheet" />
+    <link href="~/css/custom-carousel.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+            <a class="ml-5 navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                <img src="~/img/bazzar_logo1.png" alt="">
+            </a>
             <div class="container">
-                <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,7 +24,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                            <a class="nav-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Главная</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-item" asp-area="" asp-controller="" asp-action="">Каталог</a>
@@ -30,7 +33,7 @@
                             <a class="nav-item" asp-area="" asp-controller="" asp-action="">Поддержка</a>
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial"/>
                 </div>
             </div>
         </nav>
@@ -49,6 +52,10 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+
+<script src="~/lib/datatables/" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

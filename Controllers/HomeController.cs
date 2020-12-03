@@ -26,11 +26,7 @@ namespace Bazar.Controllers
 
         public IActionResult Index()
         {
-            var slidesFromDb = _unitOfWork.CarouselSlides.GetCarouselSlides();
-
-
-
-            var slidesViewModel = slidesFromDb.Select(s => _mapper.Map<CarouselSlideViewModel>(s));
+            var slidesViewModel = _unitOfWork.CarouselSlides.GetCarouselSlides().Select(s => _mapper.Map<CarouselSlideViewModel>(s));
 
             var viewModel = new HomePageViewModel
             {
@@ -45,5 +41,13 @@ namespace Bazar.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        public IActionResult Test()
+        {
+
+            return View();
+        }
+
     }
 }

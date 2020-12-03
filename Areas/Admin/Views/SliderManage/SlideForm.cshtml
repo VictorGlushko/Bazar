@@ -1,0 +1,61 @@
+﻿@model Bazar.Domain.ViewModel.CarouselSlideViewModel
+@if (Model.Id == 0)
+{
+    <h2 class="text-center">Новый слайд</h2>
+}
+else
+{
+    <h2  class="text-center">Редактировать слайд</h2>
+}
+
+
+<form asp-action="Save" asp-controller="SliderManage" asp-antiforgery="true" method="post" enctype="multipart/form-data" >
+    <div>
+
+        <input type="hidden" asp-for="Id">
+
+        <div class="form-group">
+            <label asp-for="Order"></label>
+            <input class="form-control" type="text" asp-for="Order" />
+            <span asp-validation-for="Order"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input class="form-control" type="text" asp-for="Title" />
+            <span asp-validation-for="Title"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea class="form-control"  asp-for="Description" type="text" rows="3"></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input class="form-control" type="text" asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
+
+        @if (Model.Id != 0)
+        {
+
+
+            <img src="@Model.ImgPath" />
+        }
+
+        <input type="file" name="uploadImage" />
+
+        <div class="form-group">
+            <label asp-for="Link"></label>
+            <input class="form-control" type="text" asp-for="Link" />
+            <span asp-validation-for="Link"></span>
+        </div>
+
+
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>

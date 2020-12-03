@@ -1,4 +1,10 @@
 ﻿
+body {
+    background: rgb(47,47,47);
+    background: linear-gradient(270deg, rgba(47,47,47,1) 0%, rgba(72,73,98,1) 51%, rgba(37,37,37,1) 100%);
+}
+
+
 .left-arrow, .right-arrow {
     padding-top: 100px; /*нужное значение */
     

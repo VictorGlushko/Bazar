@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Bazar.Domain.Dto;
 using Bazar.Domain.Entities;
 using Bazar.Domain.ViewModel;
 
@@ -15,6 +16,9 @@ namespace Bazar.Services
             // Add as many of these lines as you need to map your objects
             CreateMap<CarouselSlide, CarouselSlideViewModel>();
             CreateMap<CarouselSlideViewModel, CarouselSlide>();
+
+            CreateMap<CarouselSlide, CarouselSlideDto>();
+            CreateMap<CarouselSlideDto, CarouselSlide>();
         }
     }
 }

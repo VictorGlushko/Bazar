@@ -40,6 +40,7 @@ namespace Bazar
             carouselSlideInDb.Order = item.Order;
             carouselSlideInDb.Title = item.Title;
             carouselSlideInDb.Description = item.Description;
+            carouselSlideInDb.ImgPath = item.ImgPath;
 
         }
 

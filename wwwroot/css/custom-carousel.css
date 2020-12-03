@@ -113,8 +113,8 @@
 .content-description {
     font-family: "Montserrat", sans-serif;
     padding:15px 15px 0px 15px;
-    line-height: 1.9em;
-    
+    line-height: 2em;
+    font-size: 13px;
     color: var(--hl-font-color);
     overflow: hidden;
     display: -webkit-box;

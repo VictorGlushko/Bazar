@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bazar</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/custom-admin-page.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!-- <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+     <!--<link href="~/lib/materialize/css/materialize.css" rel="stylesheet" />-->
+    <link href="~/css/custom-carousel.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="sidebar-container">
+        <div class="sidebar-logo">
+            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"> BAZAR </a>
+        </div>
+        <ul class="sidebar-navigation">
+            <li class="sidebar-header">Админ-панель :</li>
+            <li>
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-gamepad"></i> Игры Home</a>
+            </li>
+            <li>
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-users"></i> Пользователи </a>
+            </li>
+            <li>
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-chart-pie"></i> Статистика</a>
+            </li>
+            <li>
+                <a class="nav-link " asp-area="Admin" asp-controller="SliderManage" asp-action="Index"><i class="fas fa-sliders-h"></i> Слайдер</a>
+            </li>
+            <li>
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i> Главная</a>
+            </li>
+            <li>
+                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-question"></i> Вопросы</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content-container">
+
+        <div class="container p-5">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Admin part</p>
+            </footer>
+        </div>
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+    <!--<script src="~/lib/materialize/js/materialize.js"></script>-->
+    <script src="~/lib/bootbox.js/bootbox.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+      
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+        </html>
