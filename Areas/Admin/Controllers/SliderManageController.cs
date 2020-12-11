@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Bazar.Domain.ViewModel;
+using Bazar.ViewModel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Controller;
@@ -76,8 +76,7 @@ namespace Bazar.Areas.Admin.Controllers
                     string ext = uploadImage.ContentType.ToLower();
                     if (ext == "image/jpg" || ext == "image/jpeg" || ext == "image/png")
                     {
-
-                        viewModel.ImgPath = UploadedFile(uploadImage);
+                        viewModel.ImgPath = UploadedFile(uploadImage, @"\img\carousel");
                     }
                     else
                     {
@@ -91,7 +90,7 @@ namespace Bazar.Areas.Admin.Controllers
             }
             else
             {
-                viewModel.ImgPath = UploadedFile(uploadImage);
+                viewModel.ImgPath = UploadedFile(uploadImage ,@"\img\carousel" );
                 _unitOfWork.CarouselSlides.UpdateCarouselSlide(viewModel.Id, _mapper.Map<CarouselSlide>(viewModel));
                 _unitOfWork.Complete();
                 return RedirectToAction("Index");
@@ -102,11 +101,9 @@ namespace Bazar.Areas.Admin.Controllers
 
 
 
-        private string UploadedFile(IFormFile uploadImage)
+        private string UploadedFile(IFormFile uploadImage, string folderPaath)
         {
-            
-
-            var uploadsFolder = $"{_appEnvironment.WebRootPath}\\img\\carousel";
+            var uploadsFolder = _appEnvironment.WebRootPath + folderPaath;
             if (!Directory.Exists(uploadsFolder))
                 Directory.CreateDirectory(uploadsFolder);
 
@@ -118,7 +115,7 @@ namespace Bazar.Areas.Admin.Controllers
             img.Mutate(x => x.Resize(800, 400));
             img.Save(filePath);
 
-            return $"\\img\\carousel\\{uniqueFileName}";
+            return folderPaath + uniqueFileName;
 
         }
 

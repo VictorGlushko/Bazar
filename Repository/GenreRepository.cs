@@ -7,7 +7,7 @@ using Bazar.Domain.Entities;
 
 namespace Bazar
 {
-   /* public class GenreRepository : IGenreRepository
+    public class GenreRepository : IGenreRepository
     {
 
         private readonly ApplicationDbContext _context;
@@ -20,5 +20,5 @@ namespace Bazar
         {
             return _context.Genres.ToList();
         }
-    }*/
+    }
 }

@@ -8,7 +8,7 @@ using Bazar.Domain.Entities;
 
 namespace Bazar
 {
-   /* public class PlatformRepository : IPlatformRepository
+    public class PlatformRepository : IPlatformRepository
     {
         private readonly ApplicationDbContext _context;
         public PlatformRepository(ApplicationDbContext context)
@@ -19,5 +19,5 @@ namespace Bazar
         {
             return _context.Platforms.ToList();
         }
-    }*/
+    }
 }

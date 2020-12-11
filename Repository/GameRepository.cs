@@ -5,10 +5,11 @@ using System.Web;
 using Bazar.Domain.Entities;
 //using System.Data.Entity;
 using Bazar.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bazar
 {
-  /*  public class GameRepository : IGameRepository
+    public class GameRepository : IGameRepository
     {
         private readonly ApplicationDbContext _context;
         public GameRepository(ApplicationDbContext context)
@@ -17,17 +18,33 @@ namespace Bazar
         }
         public IEnumerable<Game> GetGames()
         {
-            return _context.Games.Include(g=>g.MediaResources).Include(g=>g.Genres);
+            return _context.Games.
+                Include(g=>g.MediaResources).
+                Include(g=>g.Genres).
+                Include(g=>g.Modes).
+                Include(g => g.Platforms);
         }
 
         public Game GetGame(int id)
         {
-            return _context.Games.Include(g => g.MediaResources).Include(g=>g.Genres).SingleOrDefault(g => g.Id == id);
+            return _context.Games.
+                Include(g => g.MediaResources).
+                Include(g=>g.Genres).
+                Include(g => g.SystemRequirements).
+                Include(g => g.Modes).
+                Include(g => g.Platforms).
+                SingleOrDefault(g => g.Id == id);
         }
 
         public Game GetGame(string slug)
         {
-            return _context.Games.Include(g => g.MediaResources).Include(g => g.Genres).Include(g=>g.SystemRequirements).SingleOrDefault(g => g.Slag.Equals(slug));
+            return _context.Games.
+                Include(g => g.MediaResources).
+                Include(g => g.Genres).
+                Include(g=>g.SystemRequirements).
+                Include(g => g.Modes).
+                Include(g => g.Platforms).
+                SingleOrDefault(g => g.Slug.Equals(slug));
         }
 
         public void Add(Game game)
@@ -39,5 +56,5 @@ namespace Bazar
         {
             _context.Games.Remove(game);
         }
-    }*/
+    }
 }

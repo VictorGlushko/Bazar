@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Bazar.Domain.Dto;
 using Bazar.Domain.Entities;
-using Bazar.Domain.ViewModel;
+using Bazar.ViewModel;
+using Bazar.ViewModels;
 
 namespace Bazar.Services
 {
@@ -19,6 +20,15 @@ namespace Bazar.Services
 
             CreateMap<CarouselSlide, CarouselSlideDto>();
             CreateMap<CarouselSlideDto, CarouselSlide>();
+
+            CreateMap<Game, GameFormViewModel>();
+            CreateMap<GameFormViewModel, Game>();
+
+            CreateMap<SystemRequirements, SystemRequirementsViewModel>();
+            CreateMap<SystemRequirementsViewModel, SystemRequirements>();
+
+            CreateMap<Game, GameDto>();
+            CreateMap<GameDto, Game>();
         }
     }
 }

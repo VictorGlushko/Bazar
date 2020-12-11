@@ -9,6 +9,9 @@
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/css/custom-game-form.css" rel="stylesheet" />
+    <link href="~/lib/ckeditor/contents.css" rel="stylesheet" />
+    <link href="~/lib/dropzone/dropzone.css" rel="stylesheet" />
     <!-- <link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
      <!--<link href="~/lib/materialize/css/materialize.css" rel="stylesheet" />-->
     <link href="~/css/custom-carousel.css" rel="stylesheet" />
@@ -22,7 +25,7 @@
         <ul class="sidebar-navigation">
             <li class="sidebar-header">Админ-панель :</li>
             <li>
-                <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-gamepad"></i> Игры Home</a>
+                <a class="nav-link " asp-area="Admin" asp-controller="GamesManager" asp-action="Index"><i class="fas fa-gamepad"></i> Игры</a>
             </li>
             <li>
                 <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-users"></i> Пользователи </a>
@@ -62,8 +65,10 @@
     <!--<script src="~/lib/materialize/js/materialize.js"></script>-->
     <script src="~/lib/bootbox.js/bootbox.js"></script>
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+    <script src="~/lib/dropzone/dropzone.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-      
+    <partial name="_ValidationScriptsPartial" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
         </html>

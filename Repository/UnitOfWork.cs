@@ -22,11 +22,12 @@ namespace Bazar
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
-          /*  Games = new GameRepository(context);
+          
             Genres = new GenreRepository(context);
             Mode = new ModeRepository(context);
             Platform = new PlatformRepository(context);
-            FaqItem = new FaqItemRepository(context);*/
+            Games = new GameRepository(context);
+            /*FaqItem = new FaqItemRepository(context);*/
             CarouselSlides = new CarouselSlideRepository(context);
            // Comments = new CommentRepository(context);
         }

@@ -8,7 +8,7 @@ using Bazar.Domain.Entities;
 
 namespace Bazar
 {
-  /*  public class ModeRepository : IModeRepository
+    public class ModeRepository : IModeRepository
     {
         private readonly ApplicationDbContext _context;
         public ModeRepository(ApplicationDbContext context)
@@ -20,5 +20,5 @@ namespace Bazar
         {
             return _context.Modes.ToList();
         }
-    }*/
+    }
 }

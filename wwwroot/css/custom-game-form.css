@@ -1,0 +1,76 @@
+﻿.selected-item {
+    display: flex;
+    width: 250px;
+    margin-top: 5px;
+}
+
+.w-250px {
+    width: 250px;
+}
+.form-control {
+    border-radius: 0px;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    height: 30px;
+    width: 100px;
+    padding: .2em .4em;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    outline: none;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button {
+    width: 100px;
+    padding: .2em .4em;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    outline: none;
+    transition: 0.15s;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    cursor: pointer;
+}
+
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.taile {
+    width: 150px;
+    height: 100px;
+    margin: 10px;
+    background: #0062cc;
+    position: relative;
+}
+.cross {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background: #c82333;
+    cursor: pointer;
+    border: 1px solid #782333;
+}

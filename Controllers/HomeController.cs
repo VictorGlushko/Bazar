@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Bazar.Domain.ViewModel;
+using Bazar.ViewModel;
 
 namespace Bazar.Controllers
 {

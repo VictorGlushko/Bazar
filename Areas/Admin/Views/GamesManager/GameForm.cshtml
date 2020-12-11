@@ -1,0 +1,459 @@
+﻿@model Bazar.ViewModel.GameFormViewModel
+
+
+
+
+
+
+<div class="validation" asp-validation-summary="ModelOnly"> </div>
+
+<div class="row mb-2">
+    <div class="col">
+        @if (Model.PosterPath == null)
+        {
+            <img id="blah" src="/img/default.jpg" alt="your image" width="460" height="215" />
+        }
+        else
+        {
+            <img id="blah" src="@Model.PosterPath" alt="your image" width="460" height="215" />
+        }
+    </div>
+    <div class="col border">
+
+        <div class="form-group">
+            <form asp-action="AddContentImage" asp-controller="GamesManager"
+                  data-ajax="true"
+                  data-ajax-method="POST"
+                  data-ajax-mode="after"
+                  data-ajax-update="#ajaxresult"
+                  enctype="multipart/form-data">
+
+                <div class="send-comment">
+
+                    <div class="form-group">
+                        <label>Дополнительный контент для блока "Описание":</label>
+                        <input type="file" name="files" id="file" class="input-file">
+                        <button type="submit" value="Submit">Добавить</button>
+                    </div>
+
+                </div>
+            </form>
+            <ul id="ajaxresult"></ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<form asp-action="Save" asp-controller="GamesManager" asp-antiforgery="true" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="Id">
+
+    <div class="form-group">
+
+        <input asp-for="Poster" type="file" name="Poster" id="file" class="input-file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control col" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea type="text" asp-for="Description" class="form-control col"></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="OriginalPrice"></label>
+                <input type="text" asp-for="OriginalPrice" class="form-control col" />
+                <span asp-validation-for="OriginalPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinalPrice"></label>
+                <input type="text" asp-for="FinalPrice" class="form-control col" />
+                <span asp-validation-for="FinalPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Publisher"></label>
+                <input type="text" asp-for="Publisher" class="form-control col" />
+                <span asp-validation-for="Publisher"></span>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Developer"></label>
+                <input type="text" asp-for="Developer" class="form-control col" />
+                <span asp-validation-for="Developer"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language"></label>
+                <input type="text" asp-for="Language" class="form-control col" />
+                <span asp-validation-for="Language"></span>
+            </div>
+            <div class="form-group">
+                <label for="date-input">Дата релиза</label>
+                <input asp-for="ReleaseDate" class="form-control" type="date" id="date-input">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal" id="ganresModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Выберите жанр</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul class="list-group">
+
+                        @foreach (var item in Model.AllGenres)
+                        {
+                            <a class="ganreitem list-group-item" value="@item">@item</a>
+                        }
+
+                    </ul>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modesModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Выберите жанр</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul class="list-group">
+
+                        @foreach (var item in Model.AllModest)
+                        {
+                            <a class="modeitem list-group-item" value="@item">@item</a>
+                        }
+
+                    </ul>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="osModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Выберите жанр</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul class="list-group">
+
+                        @foreach (var item in Model.AllPlatforms)
+                        {
+                            <a class="ositem list-group-item" value="@item">@item</a>
+                        }
+
+                    </ul>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+<hr />
+
+<div class="row">
+        <div class="col">
+            <div class="form-group w-100">
+                <button type="button" class="btn btn-primary rounded-0 w-100" data-toggle="modal" data-target="#ganresModal">
+                    Добавить жанры
+                </button>
+                <div class="ganrelist">
+                    @if (Model.Id != 0)
+                    {
+                        foreach (var item in Model.SelectedGenres)
+                        {
+                            <div class='selected-item w-100'>
+                                <input readonly='readonly' class='form-control rounded-0' type='text' name='SelectedGenres' value="@item" />
+                                <span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></i></span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group w-100">
+
+                <button type="button" class="btn btn-primary rounded-0 w-100" data-toggle="modal" data-target="#modesModal">
+                    Добавить режимы
+                </button>
+                <div class="modelist">
+                    @if (Model.Id != 0)
+                    {
+                        foreach (var item in Model.SelectedModes)
+                        {
+                            <div class='selected-item w-100'>
+                                <input readonly='readonly' class='form-control rounded-0' type='text' name='SelectedModes' value="@item" />
+                                <span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></i></span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group w-100">
+                <button type="button" class="btn btn-primary rounded-0 w-100" data-toggle="modal" data-target="#osModal">
+                    Добавить ОС
+                </button>
+                <div class="oslist">
+                    @if (Model.Id != 0)
+                    {
+                        foreach (var item in Model.SelectedPlatforms)
+                        {
+                            <div class='selected-item w-100'>
+                                <input readonly='readonly' class='form-control rounded-0' type='text' name='SelectedPlatforms' value="@item" />
+                                <span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></i></span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <hr />
+
+    <div class="row justify-content-center">
+        <h1>Галерея</h1>
+    </div>
+
+    
+
+
+    <div class="gallery-wrapper">
+    
+        @if(Model.GalleryImages != null)
+        {
+            foreach (var item in Model.GalleryImages)
+            {
+                <div class="taile">
+                    <img class="w-100" src="@item" width="100%" height="100%" />
+                    <div class="cross remove"><i class='fas fa-times'></i></div>
+                    <input type="hidden" name='GalleryImages' value="@item" >
+                </div>
+            }
+        }
+
+    </div>
+
+
+
+    <div class="form-group d-flex justify-content-center">
+        <label asp-for="Screens">Добавить:</label>
+        <input asp-for="Screens" type='file' multiple id="gallery-photo-add" name="Screens" accept="image/x-png,image/gif,image/jpeg" />
+        <span asp-validation-for="Screens"></span>
+    </div>
+    
+<div class="gallery-wrapper">
+
+    <div class="gallery"></div>
+
+</div>
+    
+
+<div class="form-group">
+        <label asp-for="VideoLink">Ссылка на видео :</label>
+        <input asp-for="VideoLink" type='text' />
+        <span asp-validation-for="VideoLink"></span>
+    </div>
+<hr />
+
+
+    <div class="row justify-content-center">
+        <h1>Системные требования</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h5 class="text-center">Минимальные</h5>
+
+            <div class="form-group">
+                <label asp-for="SystemRequirementsVM.OperatingSystem"></label>
+                <input type="text" asp-for="SystemRequirementsVM.OperatingSystem" class="form-control" />
+                <span asp-validation-for="SystemRequirementsVM.OperatingSystem"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SystemRequirementsVM.Processor"></label>
+                <input type="text" asp-for="SystemRequirementsVM.Processor" class="form-control" />
+                <span asp-validation-for="SystemRequirementsVM.Processor"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SystemRequirementsVM.RAM"></label>
+                <input type="text" asp-for="SystemRequirementsVM.RAM" class="form-control" />
+                <span asp-validation-for="SystemRequirementsVM.RAM"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SystemRequirementsVM.VideoCard"></label>
+                <input type="text" asp-for="SystemRequirementsVM.VideoCard" class="form-control" />
+                <span asp-validation-for="SystemRequirementsVM.VideoCard"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SystemRequirementsVM.HDD"></label>
+                <input type="text" asp-for="SystemRequirementsVM.HDD" class="form-control" />
+                <span asp-validation-for="SystemRequirementsVM.HDD"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+
+</form>
+
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(function () {
+
+            $(function() {
+                // Multiple images preview in browser
+                var imagesPreview = function(input, placeToInsertImagePreview) {
+
+                    if (input.files) {
+                        var filesAmount = input.files.length;
+
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (event) {
+
+
+                                $($.parseHTML('<img>')).attr('src', event.target.result).addClass('taile').appendTo(placeToInsertImagePreview);
+                            }
+
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+
+                };
+
+                $('#gallery-photo-add').on('change', function() {
+                    imagesPreview(this, 'div.gallery');
+                });
+            });
+
+            CKEDITOR.replace('Description', {
+
+            });
+
+            $('html').on('click', '.ganreitem', function () {
+                var id = $(this).attr("value");
+                var name = $(this).text();
+                $(".ganrelist").append(
+                    "<div class='selected-item'>" +
+                    "<input readonly='readonly' class='form-control rounded-0' type ='text' name = 'SelectedGenres' value = '" + name + "' />" +
+                    "<span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></i></span>" +
+                    "</div>");
+
+                $(this).remove();
+            });
+
+            $('html').on('click', '.modeitem', function () {
+                var id = $(this).attr("value");
+                var name = $(this).text();
+                $(".modelist").append(
+                    "<div class='selected-item'>" +
+                    "<input readonly='readonly' class='form-control rounded-0' type ='text' name = 'SelectedModes' value = '" + name + "' /> " +
+                    "<span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></i></span>" +
+                    "</div>");
+
+                $(this).remove();
+
+            });
+
+            $('html').on('click', '.ositem', function () {
+                var id = $(this).attr("value");
+                var name = $(this).text();
+                $(".oslist").append(
+                    "<div class='selected-item'>" +
+                    "<input readonly='readonly' class='form-control rounded-0' type ='text' name = 'SelectedPlatforms' value = '" + name + "' /> " +
+                    "<span class='remove btn  btn-danger rounded-0'><i class='fas fa-times'></span>" +
+                    "</div>");
+
+                $(this).remove();
+
+            });
+
+
+        });
+
+        $('html').on('click', '.remove', function () {
+            $(this).parent().remove();
+        });
+
+
+
+    </script>
+}
